@@ -13,8 +13,8 @@ void init_stack(StackType *);
 int is_full(StackType *);
 int is_empty(StackType *);
 void push(StackType *, char);
-char pop(StackType *);
-char peek(StackType *);
+element pop(StackType *);
+element peek(StackType *);
 void infix_to_postfix(char exp[]);
 int perc(char ch);
 
@@ -48,7 +48,7 @@ void push(StackType *s, char ch){
     else s->stack[++(s->top)] = ch;
 }
 
-char pop(StackType *s){
+element pop(StackType *s){
     if(is_empty(s)){
         printf("Underflow Error\n");
         exit(1);
@@ -56,7 +56,7 @@ char pop(StackType *s){
     else return s->stack[(s->top)--];
 }
 
-char peek(StackType *s){
+element peek(StackType *s){
     if(is_empty(s)){
         printf("Underflow Error\n");
         exit(1);
